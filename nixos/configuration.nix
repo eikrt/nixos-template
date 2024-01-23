@@ -111,23 +111,12 @@
     environment.systemPackages = with pkgs; [
       vim
       wget
-      emacs29
       nodejs_14
       xterm
       st
       dmenu
       python3
-      vcv-rack
-      guitarix
-      rakarrack
-      hydrogen
-      qjackctl
-      qsynth
-      polyphone
-      ffmpeg
-      rosegarden
-      ardour
-      (python38.withPackages(ps: with ps; [ pandas requests configparser pygame mido pyaudio pydub ]))
+      (python38.withPackages(ps: with ps; [ ]))
     ];
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
@@ -142,13 +131,11 @@
       # Enable the OpenSSH daemon.
       services.openssh = {
         enable = true;
-        settings.PasswordAuthentication = true;
-        settings.KbdInteractiveAuthentication = true;
-       };
+      };
 
       # Open ports in the firewall.
-       networking.firewall.allowedTCPPorts = [ 22 ];
-       networking.firewall.allowedUDPPorts = [ 22 ];
+      # networking.firewall.allowedTCPPorts = [  ];
+      # networking.firewall.allowedUDPPorts = [  ];
       # Or disable the firewall altogether.
       # networking.firewall.enable = false;
 
